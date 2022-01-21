@@ -1,0 +1,29 @@
+{
+  "name": "react-social-network-api",
+  "version": "1.0.0",
+  "description": "React Social Network API",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/asyncfinkd/react-social-network-api.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/asyncfinkd/react-social-network-api/issues"
+  },
+  "homepage": "https://github.com/asyncfinkd/react-social-network-api#readme",
+  "dependencies": {
+    "apollo-server": "^3.6.2",
+    "bcryptjs": "^2.4.3",
+    "graphql": "^16.2.0",
+    "graphql-subscriptions": "^2.0.0",
+    "graphql-tag": "^2.12.6",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.1.7"
+  }
+}
