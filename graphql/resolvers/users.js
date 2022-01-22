@@ -122,19 +122,28 @@ module.exports = {
     },
 
     async addFriend(_, { userId }, context) {
-      const { username } = checkAuth(context)
+      const { id, username } = checkAuth(context)
       try {
         const user = await User.findById(userId)
+        const myUser = await User.findById(id)
 
-        if (user) {
+        if (user && myUser) {
           user.friends.push({
             status: 'Pending',
             username,
             createdAt: new Date().toISOString(),
           })
+
+          let indUsername = user.username
+          myUser.friends.push({
+            status: 'Friend',
+            username: indUsername,
+            createdAt: new Date().toISOString(),
+          })
         }
 
         await user.save()
+        await myUser.save()
         return user
       } catch (err) {}
     },
