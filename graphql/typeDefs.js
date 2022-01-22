@@ -25,12 +25,19 @@ module.exports = gql`
     username: String!
   }
 
+  type Friends {
+    status: String!
+    username: String!
+    createdAt: String!
+  }
+
   type User {
     id: ID!
     email: String!
     token: String!
     username: String!
     createdAt: String!
+    friends: [Friends]
   }
 
   input RegisterInput {
@@ -43,6 +50,9 @@ module.exports = gql`
   type Query {
     getPosts: [Post]
     getPost(postId: ID!): Post
+    getUsers: [User]
+    getFriendRequests: [Friends]
+    getFriends: [Friends]
   }
 
   type Mutation {
@@ -53,6 +63,9 @@ module.exports = gql`
     createComment(postId: ID!, body: String!): Post!
     deleteComment(postId: String!, commentId: ID!): Post!
     likePost(postId: ID!): Post!
+    addFriend(userId: ID!): User!
+    removeFriend(userId: ID!, friendId: ID!): User!
+    acceptFriendRequest(friendId: ID!): User!
   }
 
   type Subscription {

@@ -5,6 +5,13 @@ const userSchema = new Schema({
   password: String,
   email: String,
   createdAt: String,
+  friends: [
+    {
+      status: String,
+      username: String,
+      createdAt: String,
+    },
+  ],
 })
 
 module.exports = model('users', userSchema)
